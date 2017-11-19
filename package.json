@@ -1,0 +1,38 @@
+{
+  "name": "coinvault-api",
+  "version": "1.0.0",
+  "description": "RESTful API for the coinvault coin collecting application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanichols/coinvault-api.git"
+  },
+  "author": "Thomas Nichols",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tanichols/coinvault-api/issues"
+  },
+  "homepage": "https://github.com/tanichols/coinvault-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.22.8"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.12.1"
+  }
+}
