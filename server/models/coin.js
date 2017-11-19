@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     image_link: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      as: 'imageLink'
     },
     description: {
       type: DataTypes.TEXT
@@ -20,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     coin.belongsTo(models.category, {
       foreignKey: 'category_id',
       onDelete: 'CASCADE',
-      allowNull: false
+      allowNull: false,
+      as: 'categoryId'
     })
   }
 

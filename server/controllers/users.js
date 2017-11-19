@@ -1,17 +1,13 @@
-const coin = require('../models').coin
+const user = require('../models').user
 
 module.exports = {
   create (req, res) {
-    return coin
+    return user
       .create({
-        name: req.body.name,
-        year: req.body.year,
-        imageLink: req.body.image_link,
-        description: req.body.description,
-        category_id: req.params.categoryId
+        email: req.body.email
       })
-      .then(coin => {
-        res.status(201).send(coin)
+      .then(user => {
+        res.status(201).send(user)
       })
       .catch(error => {
         console.log(error)
@@ -19,29 +15,10 @@ module.exports = {
       })
   },
   list (req, res) {
-    let categoryId = req.params.categoryId || req.query.categoryId
-    if (categoryId) {
-      return coin
-        .findAll({
-          where: {
-            category_id: categoryId
-          },
-          include: [{
-            all: true
-          }]
-        })
-        .then(coins => {
-          res.status(200).send(coins)
-        })
-        .catch(error => {
-          console.log(error)
-          res.status(400).send(error)
-        })
-    }
-    return coin
+    return user
       .all()
-      .then(coins => {
-        res.status(200).send(coins)
+      .then(users => {
+        res.status(200).send(users)
       })
       .catch(error => {
         console.log(error)
@@ -49,15 +26,15 @@ module.exports = {
       })
   },
   retreive (req, res) {
-    return coin
-      .findById(req.params.coinId)
-      .then(coin => {
-        if (!coin) {
+    return user
+      .findById(req.params.userId)
+      .then(user => {
+        if (!user) {
           return res.status(404).send({
-            message: 'Coin Not Found'
+            message: 'User Not Found'
           })
         }
-        res.status(200).send(coin)
+        res.status(200).send(user)
       })
       .catch(error => {
         console.log(error)
@@ -65,15 +42,15 @@ module.exports = {
       })
   },
   update (req, res) {
-    return coin
-      .findById(req.params.coinId)
-      .then(coin => {
-        if (!coin) {
+    return user
+      .findById(req.params.userId)
+      .then(user => {
+        if (!user) {
           return res.status(404).send({
-            message: 'Coin Not Found'
+            message: 'User Not Found'
           })
         }
-        return coin
+        return user
           .update(req.body, { fields: Object.keys(req.body) })
           .then(() => {
             res.status(204).send()
@@ -89,15 +66,15 @@ module.exports = {
       })
   },
   destroy (req, res) {
-    return coin
-      .findById(req.params.coinId)
-      .then(coin => {
-        if (!coin) {
+    return user
+      .findById(req.params.userId)
+      .then(user => {
+        if (!user) {
           return res.status(404).send({
-            message: 'Coin Not Found'
+            message: 'User Not Found'
           })
         }
-        return coin
+        return user
           .destroy()
           .then(() => {
             res.status(204).send()
