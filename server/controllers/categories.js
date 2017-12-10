@@ -1,6 +1,5 @@
 const category = require('../models').category
 const coin = require('../models').coin
-const tag = require('../models').tag
 
 module.exports = {
   create (req, res) {
