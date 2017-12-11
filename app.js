@@ -13,6 +13,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.options('*', cors())
+app.use(cors())
 
 // require api routes into the application
 require('./server/routes')(app)
