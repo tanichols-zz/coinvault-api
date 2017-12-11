@@ -9,8 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     image_link: {
-      type: DataTypes.TEXT,
-      as: 'imageLink'
+      type: DataTypes.TEXT
     },
     description: {
       type: DataTypes.TEXT

@@ -6,7 +6,7 @@ module.exports = {
       .create({
         name: req.body.name,
         year: req.body.year,
-        imageLink: req.body.image_link,
+        image_link: req.body.image_link,
         description: req.body.description,
         category_id: req.params.categoryId
       })
