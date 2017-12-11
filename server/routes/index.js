@@ -34,4 +34,7 @@ module.exports = (app) => {
   app.delete('/api/categories/:categoryId/coins/:coinId', authCheck, coinsController.destroy) // admin
 
   app.get('/api/coins', coinsController.list) // all
+  app.get('/api/coins/:coinId', coinsController.retreive)
+  app.put('/api/coins/:coinId', authCheck, coinsController.update)
+  app.delete('/api/coins/:coinId', authCheck, coinsController.destroy)
 }
